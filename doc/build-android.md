@@ -1,7 +1,7 @@
 ANDROID BUILD NOTES
 ======================
 
-This guide describes how to build and package the `bitcoin-qt` GUI for Android on Linux and macOS.
+This guide describes how to build and package the `quiquitocoin-qt` GUI for Android on Linux and macOS.
 
 
 ## Dependencies

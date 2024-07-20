@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CHAINPARAMSBASE_H
-#define BITCOIN_CHAINPARAMSBASE_H
+#ifndef QUIQUITOCOIN_CHAINPARAMSBASE_H
+#define QUIQUITOCOIN_CHAINPARAMSBASE_H
 
 #include <util/chaintype.h>
 
@@ -13,8 +13,8 @@
 class ArgsManager;
 
 /**
- * CBaseChainParams defines the base parameters (shared between bitcoin-cli and bitcoind)
- * of a given instance of the Bitcoin system.
+ * CBaseChainParams defines the base parameters (shared between quiquitocoin-cli and quiquitocoind)
+ * of a given instance of the Quiquitocoin system.
  */
 class CBaseChainParams
 {
@@ -52,4 +52,4 @@ const CBaseChainParams& BaseParams();
 /** Sets the params returned by Params() to those for the given chain. */
 void SelectBaseParams(const ChainType chain);
 
-#endif // BITCOIN_CHAINPARAMSBASE_H
+#endif // QUIQUITOCOIN_CHAINPARAMSBASE_H

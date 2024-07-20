@@ -3,12 +3,12 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/quiquitocoin-config.h>
 #endif
 
 #include <interfaces/init.h>
 #include <interfaces/node.h>
-#include <qt/bitcoin.h>
+#include <qt/quiquitocoin.h>
 #include <qt/test/apptests.h>
 #include <qt/test/optiontests.h>
 #include <qt/test/rpcnestedtests.h>
@@ -83,8 +83,8 @@ int main(int argc, char* argv[])
         setenv("QT_QPA_PLATFORM", "minimal", 0 /* overwrite */);
     #endif
 
-    BitcoinApplication app;
-    app.setApplicationName("Bitcoin-Qt-test");
+    QuiquitocoinApplication app;
+    app.setApplicationName("Quiquitocoin-Qt-test");
     app.createNode(*init);
 
     int num_test_failures{0};

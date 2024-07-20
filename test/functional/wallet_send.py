@@ -13,7 +13,7 @@ from test_framework.messages import (
     ser_compact_size,
     WITNESS_SCALE_FACTOR,
 )
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import QuiquitocoinTestFramework
 from test_framework.util import (
     assert_equal,
     assert_fee_amount,
@@ -24,7 +24,7 @@ from test_framework.util import (
 from test_framework.wallet_util import generate_keypair
 
 
-class WalletSendTest(BitcoinTestFramework):
+class WalletSendTest(QuiquitocoinTestFramework):
     def add_options(self, parser):
         self.add_wallet_options(parser)
 
@@ -425,7 +425,7 @@ class WalletSendTest(BitcoinTestFramework):
 
         self.log.info("Manual change address and position...")
         self.test_send(from_wallet=w0, to_wallet=w1, amount=1, change_address="not an address",
-                       expect_error=(-5, "Change address must be a valid bitcoin address"))
+                       expect_error=(-5, "Change address must be a valid quiquitocoin address"))
         change_address = w0.getnewaddress()
         self.test_send(from_wallet=w0, to_wallet=w1, amount=1, add_to_wallet=False, change_address=change_address)
         assert res["complete"]

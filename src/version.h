@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_VERSION_H
-#define BITCOIN_VERSION_H
+#ifndef QUIQUITOCOIN_VERSION_H
+#define QUIQUITOCOIN_VERSION_H
 
 /**
  * network protocol versioning
@@ -38,4 +38,4 @@ static const int WTXID_RELAY_VERSION = 70016;
 // Make sure that none of the values above collide with
 // `SERIALIZE_TRANSACTION_NO_WITNESS`.
 
-#endif // BITCOIN_VERSION_H
+#endif // QUIQUITOCOIN_VERSION_H

@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_NETBASE_H
-#define BITCOIN_NETBASE_H
+#ifndef QUIQUITOCOIN_NETBASE_H
+#define QUIQUITOCOIN_NETBASE_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/quiquitocoin-config.h>
 #endif
 
 #include <compat/compat.h>
@@ -316,4 +316,4 @@ bool IsBadPort(uint16_t port);
  */
 CService MaybeFlipIPv6toCJDNS(const CService& service);
 
-#endif // BITCOIN_NETBASE_H
+#endif // QUIQUITOCOIN_NETBASE_H

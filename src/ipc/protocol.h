@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_IPC_PROTOCOL_H
-#define BITCOIN_IPC_PROTOCOL_H
+#ifndef QUIQUITOCOIN_IPC_PROTOCOL_H
+#define QUIQUITOCOIN_IPC_PROTOCOL_H
 
 #include <interfaces/init.h>
 
@@ -41,4 +41,4 @@ public:
 };
 } // namespace ipc
 
-#endif // BITCOIN_IPC_PROTOCOL_H
+#endif // QUIQUITOCOIN_IPC_PROTOCOL_H

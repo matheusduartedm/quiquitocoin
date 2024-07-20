@@ -7,12 +7,12 @@
 import json
 
 
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import QuiquitocoinTestFramework
 from test_framework.test_node import ErrorMatch
 from test_framework.util import assert_equal
 
 
-class SettingsTest(BitcoinTestFramework):
+class SettingsTest(QuiquitocoinTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1
@@ -21,7 +21,7 @@ class SettingsTest(BitcoinTestFramework):
     def run_test(self):
         node, = self.nodes
         settings = node.chain_path / "settings.json"
-        conf = node.datadir_path / "bitcoin.conf"
+        conf = node.datadir_path / "quiquitocoin.conf"
 
         # Assert empty settings file was created
         self.stop_node(0)

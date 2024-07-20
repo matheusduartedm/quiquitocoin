@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SERIALIZE_H
-#define BITCOIN_SERIALIZE_H
+#ifndef QUIQUITOCOIN_SERIALIZE_H
+#define QUIQUITOCOIN_SERIALIZE_H
 
 #include <attributes.h>
 #include <compat/endian.h>
@@ -1206,4 +1206,4 @@ static auto WithParams(const Params& params, T&& t)
     template <typename T> \
     auto operator()(T&& t) const { return WithParams(*this, t); }
 
-#endif // BITCOIN_SERIALIZE_H
+#endif // QUIQUITOCOIN_SERIALIZE_H

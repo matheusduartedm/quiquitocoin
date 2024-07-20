@@ -4,8 +4,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_PUBKEY_H
-#define BITCOIN_PUBKEY_H
+#ifndef QUIQUITOCOIN_PUBKEY_H
+#define QUIQUITOCOIN_PUBKEY_H
 
 #include <hash.h>
 #include <serialize.h>
@@ -372,4 +372,4 @@ struct CExtPubKey {
     [[nodiscard]] bool Derive(CExtPubKey& out, unsigned int nChild) const;
 };
 
-#endif // BITCOIN_PUBKEY_H
+#endif // QUIQUITOCOIN_PUBKEY_H

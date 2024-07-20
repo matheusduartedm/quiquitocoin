@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_KERNEL_CHAINPARAMS_H
-#define BITCOIN_KERNEL_CHAINPARAMS_H
+#ifndef QUIQUITOCOIN_KERNEL_CHAINPARAMS_H
+#define QUIQUITOCOIN_KERNEL_CHAINPARAMS_H
 
 #include <consensus/params.h>
 #include <kernel/messagestartchars.h>
@@ -75,7 +75,7 @@ struct ChainTxData {
 
 /**
  * CChainParams defines various tweakable parameters of a given instance of the
- * Bitcoin system.
+ * Quiquitocoin system.
  */
 class CChainParams
 {
@@ -183,4 +183,4 @@ protected:
     ChainTxData chainTxData;
 };
 
-#endif // BITCOIN_KERNEL_CHAINPARAMS_H
+#endif // QUIQUITOCOIN_KERNEL_CHAINPARAMS_H

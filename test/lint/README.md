@@ -7,9 +7,9 @@ To run linters locally with the same versions as the CI environment, use the inc
 Dockerfile:
 
 ```sh
-DOCKER_BUILDKIT=1 docker build -t bitcoin-linter --file "./ci/lint_imagefile" ./
+DOCKER_BUILDKIT=1 docker build -t quiquitocoin-linter --file "./ci/lint_imagefile" ./
 
-docker run --rm -v $(pwd):/bitcoin -it bitcoin-linter
+docker run --rm -v $(pwd):/quiquitocoin -it quiquitocoin-linter
 ```
 
 After building the container once, you can simply run the last command any time you
@@ -42,16 +42,16 @@ Usage: test/lint/git-subtree-check.sh [-r] DIR [COMMIT]
 
 To do a full check with `-r`, make sure that you have fetched the upstream repository branch in which the subtree is
 maintained:
-* for `src/secp256k1`: https://github.com/bitcoin-core/secp256k1.git (branch master)
-* for `src/leveldb`: https://github.com/bitcoin-core/leveldb-subtree.git (branch bitcoin-fork)
-* for `src/crypto/ctaes`: https://github.com/bitcoin-core/ctaes.git (branch master)
-* for `src/crc32c`: https://github.com/bitcoin-core/crc32c-subtree.git (branch bitcoin-fork)
+* for `src/secp256k1`: https://github.com/quiquitocoin-core/secp256k1.git (branch master)
+* for `src/leveldb`: https://github.com/quiquitocoin-core/leveldb-subtree.git (branch quiquitocoin-fork)
+* for `src/crypto/ctaes`: https://github.com/quiquitocoin-core/ctaes.git (branch master)
+* for `src/crc32c`: https://github.com/quiquitocoin-core/crc32c-subtree.git (branch quiquitocoin-fork)
 * for `src/minisketch`: https://github.com/sipa/minisketch.git (branch master)
 
 To do so, add the upstream repository as remote:
 
 ```
-git remote add --fetch secp256k1 https://github.com/bitcoin-core/secp256k1.git
+git remote add --fetch secp256k1 https://github.com/quiquitocoin-core/secp256k1.git
 ```
 
 all-lint.py

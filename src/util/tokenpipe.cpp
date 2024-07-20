@@ -4,7 +4,7 @@
 #include <util/tokenpipe.h>
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/quiquitocoin-config.h>
 #endif
 
 #ifndef WIN32

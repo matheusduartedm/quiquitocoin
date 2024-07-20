@@ -9,13 +9,13 @@ import shutil
 import time
 
 from test_framework.authproxy import JSONRPCException
-from test_framework.test_framework import BitcoinTestFramework
+from test_framework.test_framework import QuiquitocoinTestFramework
 from test_framework.wallet_util import (
     get_generate_key,
 )
 
 
-class InactiveHDChainsTest(BitcoinTestFramework):
+class InactiveHDChainsTest(QuiquitocoinTestFramework):
     def add_options(self, parser):
         self.add_wallet_options(parser, descriptors=False)
 
@@ -108,7 +108,7 @@ class InactiveHDChainsTest(BitcoinTestFramework):
     def test_without_upgraded_keymeta(self):
         # Test that it is possible to top up inactive hd chains even if there is no key origin
         # in CKeyMetadata. This tests for the segfault reported in
-        # https://github.com/bitcoin/bitcoin/issues/21605
+        # https://github.com/quiquitocoin/quiquitocoin/issues/21605
         self.log.info("Test that topping up inactive HD chains does not need upgraded key origin")
 
         self.nodes[0].createwallet(wallet_name="keymeta_base", descriptors=False, blank=True)

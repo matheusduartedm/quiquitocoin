@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLET_CONTEXT_H
-#define BITCOIN_WALLET_CONTEXT_H
+#ifndef QUIQUITOCOIN_WALLET_CONTEXT_H
+#define QUIQUITOCOIN_WALLET_CONTEXT_H
 
 #include <sync.h>
 
@@ -49,4 +49,4 @@ struct WalletContext {
 };
 } // namespace wallet
 
-#endif // BITCOIN_WALLET_CONTEXT_H
+#endif // QUIQUITOCOIN_WALLET_CONTEXT_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_PREVECTOR_H
-#define BITCOIN_PREVECTOR_H
+#ifndef QUIQUITOCOIN_PREVECTOR_H
+#define QUIQUITOCOIN_PREVECTOR_H
 
 #include <assert.h>
 #include <cstdlib>
@@ -533,4 +533,4 @@ public:
     }
 };
 
-#endif // BITCOIN_PREVECTOR_H
+#endif // QUIQUITOCOIN_PREVECTOR_H

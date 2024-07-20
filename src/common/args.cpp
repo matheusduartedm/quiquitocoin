@@ -36,8 +36,8 @@
 #include <utility>
 #include <variant>
 
-const char * const BITCOIN_CONF_FILENAME = "bitcoin.conf";
-const char * const BITCOIN_SETTINGS_FILENAME = "settings.json";
+const char * const QUIQUITOCOIN_CONF_FILENAME = "quiquitocoin.conf";
+const char * const QUIQUITOCOIN_SETTINGS_FILENAME = "settings.json";
 
 ArgsManager gArgs;
 
@@ -191,7 +191,7 @@ bool ArgsManager::ParseParameters(int argc, const char* const argv[], std::strin
         if (key.substr(0, 5) == "-psn_") continue;
 #endif
 
-        if (key == "-") break; //bitcoin-tx using stdin
+        if (key == "-") break; //quiquitocoin-tx using stdin
         std::optional<std::string> val;
         size_t is_index = key.find('=');
         if (is_index != std::string::npos) {
@@ -374,7 +374,7 @@ bool ArgsManager::IsArgSet(const std::string& strArg) const
 
 bool ArgsManager::GetSettingsPath(fs::path* filepath, bool temp, bool backup) const
 {
-    fs::path settings = GetPathArg("-settings", BITCOIN_SETTINGS_FILENAME);
+    fs::path settings = GetPathArg("-settings", QUIQUITOCOIN_SETTINGS_FILENAME);
     if (settings.empty()) {
         return false;
     }
@@ -685,12 +685,12 @@ std::string HelpMessageOpt(const std::string &option, const std::string &message
 
 fs::path GetDefaultDataDir()
 {
-    // Windows: C:\Users\Username\AppData\Roaming\Bitcoin
-    // macOS: ~/Library/Application Support/Bitcoin
-    // Unix-like: ~/.bitcoin
+    // Windows: C:\Users\Username\AppData\Roaming\Quiquitocoin
+    // macOS: ~/Library/Application Support/Quiquitocoin
+    // Unix-like: ~/.quiquitocoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Bitcoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Quiquitocoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -700,10 +700,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // macOS
-    return pathRet / "Library/Application Support/Bitcoin";
+    return pathRet / "Library/Application Support/Quiquitocoin";
 #else
     // Unix-like
-    return pathRet / ".bitcoin";
+    return pathRet / ".quiquitocoin";
 #endif
 #endif
 }
