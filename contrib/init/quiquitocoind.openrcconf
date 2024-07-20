@@ -1,0 +1,33 @@
+# /etc/conf.d/quiquitocoind: config file for /etc/init.d/quiquitocoind
+
+# Config file location
+#QUIQUITOCOIND_CONFIGFILE="/etc/quiquitocoin/quiquitocoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $QUIQUITOCOIND_USER)
+#QUIQUITOCOIND_PIDDIR="/var/run/quiquitocoind"
+
+# What filename to give the pidfile
+#QUIQUITOCOIND_PIDFILE="${QUIQUITOCOIND_PIDDIR}/quiquitocoind.pid"
+
+# Where to write quiquitocoind data (be mindful that the blockchain is large)
+#QUIQUITOCOIND_DATADIR="/var/lib/quiquitocoind"
+
+# User and group to own quiquitocoind process
+#QUIQUITOCOIND_USER="quiquitocoin"
+#QUIQUITOCOIND_GROUP="quiquitocoin"
+
+# Path to quiquitocoind executable
+#QUIQUITOCOIND_BIN="/usr/bin/quiquitocoind"
+
+# Nice value to run quiquitocoind under
+#QUIQUITOCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#QUIQUITOCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for quiquitocoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+QUIQUITOCOIND_SIGTERM_TIMEOUT=600
