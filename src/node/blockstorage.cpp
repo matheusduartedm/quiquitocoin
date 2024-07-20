@@ -1029,9 +1029,12 @@ bool BlockManager::ReadBlockFromDisk(CBlock& block, const FlatFilePos& pos) cons
     }
 
     // Check the header
-    if (!CheckProofOfWork(block.GetHash(), block.nBits, GetConsensus())) {
-        return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
+    if (block.GetHash() != consensusParams.hashGenesisBlock) {
+        if (!CheckProofOfWork(block.GetHash(), block.nBits, GetConsensus())) {
+            return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
+        }
     }
+
 
     // Signet only: check block solution
     if (GetConsensus().signet_blocks && !CheckSignetBlockSolution(block, GetConsensus())) {
