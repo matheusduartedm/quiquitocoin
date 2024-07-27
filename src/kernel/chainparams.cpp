@@ -32,8 +32,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     txNew.nVersion = 1;
     txNew.vin.resize(1);
     txNew.vout.resize(1);
-    txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-    txNew.vout[0].nValue = genesisReward;
+ 	txNew.vin[0].scriptSig = CScript() << 545259519 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));    txNew.vout[0].nValue = genesisReward;
     txNew.vout[0].scriptPubKey = genesisOutputScript;
 
     CBlock genesis;
@@ -60,7 +59,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "12-13-18 LinkedIn: ‘Blockchain developer’ is the fastest-growing U.S. job";
+    const char* pszTimestamp = "12-13-18 LinkedIn: 'Blockchain developer' is the fastest-growing U.S. job";
     const CScript genesisOutputScript = CScript() << ParseHex("048f74dca316b3faa7e947919babe20e274d5c1f4cf3366652bd360bb51322f652b575fd0461fb982fd9aabf39c879db9f08a5f505bb5671083bc085c1802eac56") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -123,6 +122,8 @@ public:
 
         genesis = CreateGenesisBlock(1544904235, 0x00000006, 545259519, 1, 1000000 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
+		std::cout << "genesis hash: " << consensus.hashGenesisBlock.ToString() << std::endl;
+		std::cout << "genesis merkle root: " << genesis.hashMerkleRoot.ToString() << std::endl;
         assert(consensus.hashGenesisBlock == uint256S("0x1918500b88eb211c30bf3ae7a5faa51305bace111344ab696efbd619fe99eb38"));
         assert(genesis.hashMerkleRoot == uint256S("0x634c2897ab0decc26fce8dbedbdb5defd62837948de775499394cb862e91ec95"));
 
