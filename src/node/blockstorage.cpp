@@ -1029,7 +1029,7 @@ bool BlockManager::ReadBlockFromDisk(CBlock& block, const FlatFilePos& pos) cons
     }
 
     // Check the header
-    if (block.GetHash() != consensusParams.hashGenesisBlock) {
+    if (block.GetHash() != GetConsensus().hashGenesisBlock) {
         if (!CheckProofOfWork(block.GetHash(), block.nBits, GetConsensus())) {
             return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
         }

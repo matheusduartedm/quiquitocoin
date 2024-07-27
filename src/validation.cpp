@@ -2171,7 +2171,7 @@ bool Chainstate::ConnectBlock(const CBlock& block, BlockValidationState& state, 
     // is enforced in ContextualCheckBlockHeader(); we wouldn't want to
     // re-enforce that rule here (at least until we make it impossible for
     // m_adjusted_time_callback() to go backward).
-    if (block.GetHash() != chainparams.GetConsensus().hashGenesisBlock) {
+    if (block.GetHash() != params.GetConsensus().hashGenesisBlock) {
         if (!CheckBlock(block, state, params.GetConsensus(), !fJustCheck, !fJustCheck)) {
             if (state.GetResult() == BlockValidationResult::BLOCK_MUTATED) {
                 // We don't write down blocks to disk if they may have been
@@ -2302,7 +2302,7 @@ bool Chainstate::ConnectBlock(const CBlock& block, BlockValidationState& state, 
     // testnet3 has no blocks before the BIP34 height with indicated heights
     // post BIP34 before approximately height 486,000,000. After block
     // 1,983,702 testnet3 starts doing unnecessary BIP30 checking again.
-    if (block.GetHash() != chainparams.GetConsensus().hashGenesisBlock) {
+    if (block.GetHash() != params.GetConsensus().hashGenesisBlock) {
         assert(pindex->pprev);
         CBlockIndex* pindexBIP34height = pindex->pprev->GetAncestor(params.GetConsensus().BIP34Height);
         //Only continue to enforce if we're below BIP34 activation height or the block hash at that height doesn't correspond.
@@ -2325,7 +2325,7 @@ bool Chainstate::ConnectBlock(const CBlock& block, BlockValidationState& state, 
 
     // Enforce BIP68 (sequence locks)
     int nLockTimeFlags = 0;
-    if (block.GetHash() != chainparams.GetConsensus().hashGenesisBlock) {
+    if (block.GetHash() != params.GetConsensus().hashGenesisBlock) {
         if (DeploymentActiveAt(*pindex, m_chainman, Consensus::DEPLOYMENT_CSV)) {
             nLockTimeFlags |= LOCKTIME_VERIFY_SEQUENCE;
         }
@@ -2432,7 +2432,7 @@ bool Chainstate::ConnectBlock(const CBlock& block, BlockValidationState& state, 
              Ticks<MillisecondsDouble>(time_connect) / num_blocks_total);
 
     CAmount blockReward = nFees + GetBlockSubsidy(pindex->nHeight, params.GetConsensus());
-    if (block.vtx[0]->GetValueOut() > blockReward && block.GetHash() != chainparams.GetConsensus().hashGenesisBlock) {
+    if (block.vtx[0]->GetValueOut() > blockReward && block.GetHash() != params.GetConsensus().hashGenesisBlock) {
         LogPrintf("ERROR: ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d)\n", block.vtx[0]->GetValueOut(), blockReward);
         return state.Invalid(BlockValidationResult::BLOCK_CONSENSUS, "bad-cb-amount");
     }
@@ -2452,7 +2452,7 @@ bool Chainstate::ConnectBlock(const CBlock& block, BlockValidationState& state, 
     if (fJustCheck)
         return true;
 
-    if (block.GetHash() != chainparams.GetConsensus().hashGenesisBlock) {
+    if (block.GetHash() != params.GetConsensus().hashGenesisBlock) {
         if (!m_blockman.WriteUndoDataForBlock(blockundo, state, *pindex)) {
             return false;
         }
