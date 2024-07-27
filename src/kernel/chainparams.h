@@ -30,6 +30,9 @@ struct CCheckpointData {
     MapCheckpoints mapCheckpoints;
 
     int GetHeight() const {
+        if (mapCheckpoints.empty()) {
+            return -1;  // or handle the case appropriately depending on your application logic
+        }
         const auto& final_checkpoint = mapCheckpoints.rbegin();
         return final_checkpoint->first /* height */;
     }
